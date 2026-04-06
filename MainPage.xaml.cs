@@ -2,6 +2,7 @@ using Microsoft.Maui.Controls;
 
 namespace CurrencyApp
 {
+    public partial class MainPage : ContentPage
     public class MainPage : ContentPage
     {
         private readonly ExchangeRates _service = new ExchangeRates();
@@ -19,6 +20,7 @@ namespace CurrencyApp
 
         public MainPage()
         {
+            InitializeComponent();
             Title = "FreelanceFX";
             BuildUI();
             LoadCurrenciesAsync();
@@ -140,6 +142,7 @@ namespace CurrencyApp
                 _historyStrings.Insert(0, record.ToString());
                 lstHistory.ItemsSource = null;
                 lstHistory.ItemsSource = _historyStrings;
+                
                 lblStatus.Text = $"Done. Rate: 1 {from} = {rate:N4} {to}";
             }
             catch (Exception ex)
