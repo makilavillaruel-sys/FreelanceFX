@@ -8,15 +8,14 @@ namespace CurrencyApp
         private readonly List<ConversionRecords> _history = new();
         private readonly List<string> _historyStrings = new();
 
-        private Entry txtAmount;
-        private Picker cmbFrom;
-        private Picker cmbTo;
-        private Label lblResult;
-        private Label lblRate;
-        private Frame resultFrame;
-        private Label lblStatus;
-        private CollectionView lstHistory;
-
+        private Entry? txtAmount;
+        private Picker? cmbFrom;
+        private Picker? cmbTo;
+        private Label? lblResult;
+        private Label? lblRate;
+        private Frame? resultFrame;
+        private Label? lblStatus;
+        private CollectionView? lstHistory;
         public MainPage()
         {
             Title = "FreelanceFX";
