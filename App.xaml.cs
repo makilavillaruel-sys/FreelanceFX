@@ -1,10 +1,10 @@
-namespace FreeLanceFX
+namespace CurrencyApp
 {
     public partial class App : Application
     {
         public App()
         {
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new MainPage();
         }
     }
 }
