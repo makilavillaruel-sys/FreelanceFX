@@ -1,7 +1,7 @@
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 
-namespace CurrencyApp
+namespace FreeLanceFX
 {
     public static class MauiProgram
     {
