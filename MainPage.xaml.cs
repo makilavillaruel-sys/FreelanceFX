@@ -2,7 +2,6 @@ using Microsoft.Maui.Controls;
 
 namespace CurrencyApp
 {
-    public partial class MainPage : ContentPage
     public class MainPage : ContentPage
     {
         private readonly ExchangeRates _service = new ExchangeRates();
