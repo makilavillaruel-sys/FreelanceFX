@@ -19,7 +19,6 @@ namespace CurrencyApp
 
         public MainPage()
         {
-            InitializeComponent();
             Title = "FreelanceFX";
             BuildUI();
             LoadCurrenciesAsync();
@@ -32,19 +31,27 @@ namespace CurrencyApp
             cmbTo = new Picker { Title = "Select currency" };
             lblResult = new Label { FontSize = 18, FontAttributes = FontAttributes.Bold, TextColor = Color.FromArgb("#145A32"), HorizontalOptions = LayoutOptions.Center };
             lblRate = new Label { FontSize = 12, TextColor = Colors.Gray, HorizontalOptions = LayoutOptions.Center };
-            resultFrame = new Frame { BorderColor = Colors.LightGray, CornerRadius = 8, Padding = 16, IsVisible = false,
-                Content = new VerticalStackLayout { Children = { lblResult, lblRate } } };
+            resultFrame = new Frame
+            {
+                BorderColor = Colors.LightGray,
+                CornerRadius = 8,
+                Padding = 16,
+                IsVisible = false,
+                Content = new VerticalStackLayout { Children = { lblResult, lblRate } }
+            };
             lblStatus = new Label { FontSize = 12, TextColor = Colors.Gray, HorizontalOptions = LayoutOptions.Center };
 
-            var swapBtn = new Button { Text = "⇅ Swap", BackgroundColor = Color.FromArgb("#E0E7FF"), TextColor = Color.FromArgb("#1E3C72") };
+            var swapBtn = new Button { Text = "Swap", BackgroundColor = Color.FromArgb("#E0E7FF"), TextColor = Color.FromArgb("#1E3C72") };
             swapBtn.Clicked += BtnSwap_Click;
 
-            var convertBtn = new Button { Text = "Convert", BackgroundColor = Color.FromArgb("#1E3C72"), TextColor = Colors.White,
-                FontAttributes = FontAttributes.Bold, FontSize = 16 };
+            var convertBtn = new Button { Text = "Convert", BackgroundColor = Color.FromArgb("#1E3C72"), TextColor = Colors.White, FontAttributes = FontAttributes.Bold, FontSize = 16 };
             convertBtn.Clicked += BtnConvert_Click;
 
-            lstHistory = new CollectionView { HeightRequest = 200,
-                ItemTemplate = new DataTemplate(() => {
+            lstHistory = new CollectionView
+            {
+                HeightRequest = 200,
+                ItemTemplate = new DataTemplate(() =>
+                {
                     var lbl = new Label { FontSize = 11, Padding = new Thickness(4) };
                     lbl.SetBinding(Label.TextProperty, ".");
                     return lbl;
@@ -61,17 +68,26 @@ namespace CurrencyApp
                     {
                         new Label { Text = "FreelanceFX", FontSize = 28, FontAttributes = FontAttributes.Bold, TextColor = Color.FromArgb("#1E3C72"), HorizontalOptions = LayoutOptions.Center },
                         new Label { Text = "Currency Converter", FontSize = 14, TextColor = Colors.Gray, HorizontalOptions = LayoutOptions.Center },
-                        new Frame { BorderColor = Colors.LightGray, CornerRadius = 8, Padding = 16,
-                            Content = new VerticalStackLayout { Spacing = 10, Children = {
-                                new Label { Text = "Amount", FontAttributes = FontAttributes.Bold },
-                                txtAmount,
-                                new Label { Text = "From Currency", FontAttributes = FontAttributes.Bold },
-                                cmbFrom,
-                                swapBtn,
-                                new Label { Text = "To Currency", FontAttributes = FontAttributes.Bold },
-                                cmbTo,
-                                convertBtn
-                            }}
+                        new Frame
+                        {
+                            BorderColor = Colors.LightGray,
+                            CornerRadius = 8,
+                            Padding = 16,
+                            Content = new VerticalStackLayout
+                            {
+                                Spacing = 10,
+                                Children =
+                                {
+                                    new Label { Text = "Amount", FontAttributes = FontAttributes.Bold },
+                                    txtAmount,
+                                    new Label { Text = "From Currency", FontAttributes = FontAttributes.Bold },
+                                    cmbFrom,
+                                    swapBtn,
+                                    new Label { Text = "To Currency", FontAttributes = FontAttributes.Bold },
+                                    cmbTo,
+                                    convertBtn
+                                }
+                            }
                         },
                         resultFrame,
                         lblStatus,
@@ -141,7 +157,6 @@ namespace CurrencyApp
                 _historyStrings.Insert(0, record.ToString());
                 lstHistory.ItemsSource = null;
                 lstHistory.ItemsSource = _historyStrings;
-                
                 lblStatus.Text = $"Done. Rate: 1 {from} = {rate:N4} {to}";
             }
             catch (Exception ex)
