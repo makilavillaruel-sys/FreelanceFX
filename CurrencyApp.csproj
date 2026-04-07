@@ -7,6 +7,7 @@
     <UseMaui>true</UseMaui>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationId>com.freelancefx.currencyapp</ApplicationId>
+    <ApplicationTitle>FreelanceFX</ApplicationTitle>
     <ApplicationVersion>1</ApplicationVersion>
     <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
   </PropertyGroup>
